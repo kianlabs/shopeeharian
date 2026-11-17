@@ -40,8 +40,8 @@ export function SiteHeader({
   }
 
   return (
-    <header className="bg-shopee-orange sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4">
+    <header className="bg-shopee-orange sticky top-0 z-50 shadow-md w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 w-full">
         <div className="flex items-center gap-2 sm:gap-4 h-14">
           <Link href="/" className="flex-shrink-0 flex items-center h-9">
             <span className="text-white font-black text-sm sm:text-base tracking-tight whitespace-nowrap">

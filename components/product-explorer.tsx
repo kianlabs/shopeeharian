@@ -124,7 +124,7 @@ export function ProductExplorer({
 
   return (
     <>
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide mb-3 lg:hidden py-0.5">
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide mb-3 lg:hidden py-0.5 overscroll-x-contain touch-pan-x">
         {chips.map((chip) => {
           const isActive = category ? chip.id === sub : chip.id === filter;
           return (
@@ -150,7 +150,7 @@ export function ProductExplorer({
       </div>
 
       {/* Tab bar — sama seperti referensi. */}
-      <div className="bg-white rounded-sm shadow-xs mb-3 sm:mb-4 overflow-x-auto scrollbar-hide">
+      <div className="bg-white rounded-sm shadow-xs mb-3 sm:mb-4 overflow-x-auto scrollbar-hide overscroll-x-contain touch-pan-x">
         <div className="flex border-b border-gray-100 w-max min-w-full">
           {TABS.map((entry) => {
             const isActive = entry.id === tab;

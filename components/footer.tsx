@@ -18,7 +18,7 @@ export function Footer({
 
   return (
     <footer
-      className={`bg-shopee-darkorange text-white ${variant === "category" ? "mt-8" : ""}`}
+      className={`bg-shopee-darkorange text-white w-full overflow-hidden ${variant === "category" ? "mt-8" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">

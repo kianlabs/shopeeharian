@@ -66,7 +66,7 @@ export default function Home() {
           banner/contentinfo untuk screen reader. */}
       <SiteHeader />
 
-      <main className="min-h-screen bg-gray-100">
+      <main className="min-h-screen bg-gray-100 w-full overflow-x-hidden">
         <HeroBanner />
         <CategoryRow />
         <FlashSale />

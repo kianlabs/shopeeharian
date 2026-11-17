@@ -17,16 +17,16 @@ export function Catalog({
   return (
     <div
       id="produk"
-      className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 scroll-mt-16"
+      className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 scroll-mt-16 w-full overflow-hidden"
     >
-      <div className="flex gap-4">
+      <div className="flex flex-col lg:flex-row gap-0 lg:gap-4 w-full">
         {category ? (
           <SubCategorySidebar category={category} />
         ) : (
           <CategoryFilterSidebar />
         )}
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 w-full">
           <ProductExplorer products={products} category={category} />
         </div>
       </div>

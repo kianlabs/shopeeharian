@@ -142,17 +142,6 @@ export function ProductCard({
             ) : null}
           </div>
         </div>
-
-        {!dense && (
-          <div className="mt-2.5 pt-1.5 border-t border-gray-100">
-            <div className="w-full bg-shopee-orange hover:bg-shopee-darkorange text-white text-[11px] font-semibold py-1.5 px-2 rounded-xs text-center flex items-center justify-center gap-1 shadow-xs transition-colors">
-              <span>Beli di Shopee</span>
-              <span className="text-[10px]" aria-hidden>
-                ↗
-              </span>
-            </div>
-          </div>
-        )}
       </div>
     </a>
   );

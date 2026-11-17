@@ -67,7 +67,7 @@ export function CategoryView({ id }: { id: Category }) {
           banner/contentinfo untuk screen reader. */}
       <SiteHeader placeholder={page.searchPlaceholder} />
 
-      <main className="min-h-screen bg-gray-100">
+      <main className="min-h-screen bg-gray-100 w-full overflow-x-hidden">
         <div className="bg-white border-b">
           <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3">
             <nav className="text-xs sm:text-sm text-gray-500">

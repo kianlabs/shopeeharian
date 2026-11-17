@@ -52,8 +52,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="id" className={`${roboto.variable} h-full antialiased`}>
-      <body className="min-h-full">{children}</body>
+    <html lang="id" className={`${roboto.variable} h-full antialiased overflow-x-hidden`}>
+      <body className="min-h-full w-full max-w-full overflow-x-hidden">{children}</body>
     </html>
   );
 }

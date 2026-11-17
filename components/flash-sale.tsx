@@ -7,8 +7,8 @@ export function FlashSale() {
   if (featuredProducts.length === 0) return null;
 
   return (
-    <section id="flash-sale" className="bg-white border-b">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4">
+    <section id="flash-sale" className="bg-white border-b w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 w-full">
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 py-3 border-b border-gray-100">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <h2 className="text-base sm:text-lg font-bold text-shopee-orange flex items-center gap-1 whitespace-nowrap">
@@ -27,7 +27,7 @@ export function FlashSale() {
           </a>
         </div>
 
-        <div className="flex overflow-x-auto gap-2.5 sm:gap-3 py-2.5 sm:py-3 scrollbar-hide snap-x snap-mandatory">
+        <div className="flex overflow-x-auto gap-2.5 sm:gap-3 py-2.5 sm:py-3 scrollbar-hide snap-x snap-mandatory overscroll-x-contain touch-pan-x">
           {featuredProducts.map((product, index) => (
             <div key={product.id} className="flex-shrink-0 w-[132px] sm:w-36 snap-start">
               <ProductCard product={product} priority={index < 4} dense />
