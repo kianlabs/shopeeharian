@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Benefits } from "@/components/benefits";
 import { Catalog } from "@/components/catalog";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
@@ -95,7 +94,6 @@ export function CategoryView({ id }: { id: Category }) {
         </div>
 
         <Catalog products={products} category={id} />
-        <Benefits />
       </main>
 
       <Footer variant="category" />

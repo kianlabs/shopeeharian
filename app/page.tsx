@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Benefits } from "@/components/benefits";
 import { Catalog } from "@/components/catalog";
 import { CategoryRow } from "@/components/category-row";
 import { FlashSale } from "@/components/flash-sale";
@@ -71,7 +70,6 @@ export default function Home() {
         <CategoryRow />
         <FlashSale />
         <Catalog products={products} />
-        <Benefits />
       </main>
 
       <Footer />
