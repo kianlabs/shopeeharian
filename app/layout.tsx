@@ -47,13 +47,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: "#ee4e2e",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="id" className={`${roboto.variable} h-full antialiased overflow-x-hidden`}>
-      <body className="min-h-full w-full max-w-full overflow-x-hidden">{children}</body>
+    <html lang="id" className={`${roboto.variable} antialiased`}>
+      <body className="min-h-screen w-full">{children}</body>
     </html>
   );
 }

@@ -124,7 +124,7 @@ export function ProductExplorer({
 
   return (
     <>
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide mb-3 lg:hidden py-0.5 overscroll-x-contain touch-pan-x">
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide mb-3 lg:hidden py-0.5 overscroll-x-contain">
         {chips.map((chip) => {
           const isActive = category ? chip.id === sub : chip.id === filter;
           return (
@@ -149,9 +149,9 @@ export function ProductExplorer({
         })}
       </div>
 
-      {/* Tab bar — sama seperti referensi. */}
-      <div className="bg-white rounded-sm shadow-xs mb-3 sm:mb-4 overflow-x-auto scrollbar-hide overscroll-x-contain touch-pan-x">
-        <div className="flex border-b border-gray-100 w-max min-w-full">
+      {/* Tab bar — 3 tab terdistribusi rata tanpa horizontal scroll trap */}
+      <div className="bg-white rounded-sm shadow-xs mb-3 sm:mb-4 overflow-hidden">
+        <div className="grid grid-cols-3 border-b border-gray-100 w-full text-center">
           {TABS.map((entry) => {
             const isActive = entry.id === tab;
             return (
@@ -160,7 +160,7 @@ export function ProductExplorer({
                 type="button"
                 onClick={() => setTab(entry.id)}
                 aria-pressed={isActive}
-                className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors relative whitespace-nowrap active:bg-gray-50 ${
+                className={`py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors relative whitespace-nowrap active:bg-gray-50 flex items-center justify-center ${
                   isActive
                     ? "text-shopee-orange font-bold"
                     : "text-gray-500 hover:text-gray-700"
