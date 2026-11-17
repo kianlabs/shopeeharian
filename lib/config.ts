@@ -189,6 +189,3 @@ export const footerColumns = [
     items: ["Kebijakan Pengembalian", "Kebijakan Privasi"],
   },
 ] as const;
-
-export const DISCLAIMER =
-  "Halaman ini berisi tautan afiliasi Shopee. Kami dapat memperoleh komisi dari pembelian melalui tautan tersebut, tanpa biaya tambahan untuk kamu.";

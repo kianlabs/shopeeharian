@@ -106,11 +106,6 @@ export function SiteHeader({
           </div>
         </div>
       </div>
-      {/* Bar disclosure afiliasi — selalu terlihat di semua halaman. */}
-      <div className="bg-orange-800/70 text-orange-100 text-center text-[10px] leading-tight px-3 py-1">
-        Tautan afiliasi Shopee — kami dapat memperoleh komisi dari pembelianmu,
-        tanpa biaya tambahan untuk kamu.
-      </div>
     </header>
   );
 }

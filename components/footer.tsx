@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CATEGORIES, DISCLAIMER, footerColumns, site } from "@/lib/config";
+import { CATEGORIES, footerColumns, site } from "@/lib/config";
 
 /**
  * Footer referensi punya dua varian kolom:
@@ -71,7 +71,6 @@ export function Footer({
         </div>
 
         <div className="border-t border-orange-600 mt-6 pt-6 text-center">
-          <p className="text-[10px] text-orange-300/80 mb-2">{DISCLAIMER}</p>
           <p className="text-[11px] text-orange-300">
             © {site.copyrightYear} {site.name}. Semua hak dilindungi. 🧡
           </p>
