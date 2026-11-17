@@ -42,9 +42,9 @@ export function ProductCard({
       href={product.affiliateUrl}
       target="_blank"
       rel="nofollow sponsored noopener noreferrer"
-      className="product-card bg-white rounded-sm overflow-hidden block border border-gray-100 shadow-xs hover:shadow-md active:scale-[0.98] transition-all"
+      className="product-card bg-white rounded-sm overflow-hidden flex flex-col h-full border border-gray-100 shadow-xs hover:shadow-md active:scale-[0.98] transition-all"
     >
-      <div className="relative aspect-square bg-gray-50 overflow-hidden">
+      <div className="relative aspect-square bg-gray-50 overflow-hidden shrink-0">
         {product.image ? (
           <Image
             src={product.image}
@@ -73,7 +73,7 @@ export function ProductCard({
         </span>
       </div>
 
-      <div className="p-2 sm:p-2.5 flex flex-col justify-between">
+      <div className="p-2 sm:p-2.5 flex-1 flex flex-col justify-between">
         <div>
           <h3
             className="text-xs text-gray-800 line-clamp-2 min-h-[34px] leading-snug font-normal"

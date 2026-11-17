@@ -16,7 +16,7 @@ export const site = {
     "Temukan rekomendasi peralatan dapur, organizer, dan kebersihan rumah terlaris di Shopee — pilihan untuk dapur rapi dan kos-kosan nyaman. Harga mulai belasan ribu, produk pilihan dengan ribuan ulasan.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://shopeeharian.vercel.app",
   shopeeUrl: "https://shopee.co.id",
-  searchPlaceholder: "Cari peralatan dapur, organizer, kebersihan...",
+  searchPlaceholder: "Cari produk rumah & kos...",
   social: "@shopeharian",
   copyrightYear: 2026, // perbarui manual setiap tahun baru
 } as const;
