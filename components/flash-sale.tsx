@@ -27,9 +27,9 @@ export function FlashSale() {
           </a>
         </div>
 
-        <div className="flex overflow-x-auto gap-2 sm:gap-3 py-3 scrollbar-hide">
+        <div className="flex overflow-x-auto gap-2.5 sm:gap-3 py-2.5 sm:py-3 scrollbar-hide snap-x snap-mandatory">
           {featuredProducts.map((product, index) => (
-            <div key={product.id} className="flex-shrink-0 w-32">
+            <div key={product.id} className="flex-shrink-0 w-[132px] sm:w-36 snap-start">
               <ProductCard product={product} priority={index < 4} dense />
             </div>
           ))}

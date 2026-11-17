@@ -42,7 +42,7 @@ export function ProductCard({
       href={product.affiliateUrl}
       target="_blank"
       rel="nofollow sponsored noopener noreferrer"
-      className="product-card bg-white rounded-sm overflow-hidden block border border-gray-100 shadow-sm hover:shadow-lg transition-all"
+      className="product-card bg-white rounded-sm overflow-hidden block border border-gray-100 shadow-xs hover:shadow-md active:scale-[0.98] transition-all"
     >
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
         {product.image ? (
@@ -50,7 +50,7 @@ export function ProductCard({
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 220px"
+            sizes="(max-width: 640px) 48vw, (max-width: 1024px) 30vw, 220px"
             className="object-cover"
             priority={priority}
             loading={priority ? undefined : "lazy"}
@@ -60,7 +60,7 @@ export function ProductCard({
         )}
 
         {discount > 0 ? (
-          <span className="absolute top-0 left-0 bg-shopee-orange text-white text-[10px] px-1.5 py-0.5 font-bold">
+          <span className="absolute top-0 left-0 bg-shopee-orange text-white text-[10px] px-1.5 py-0.5 font-bold rounded-br-xs shadow-xs">
             -{discount}%
           </span>
         ) : null}
@@ -73,73 +73,86 @@ export function ProductCard({
         </span>
       </div>
 
-      <div className="p-2">
-        <h3
-          className="text-xs text-gray-700 line-clamp-2 min-h-[32px] leading-tight"
-          title={product.name}
-        >
-          {product.name}
-        </h3>
+      <div className="p-2 sm:p-2.5 flex flex-col justify-between">
+        <div>
+          <h3
+            className="text-xs text-gray-800 line-clamp-2 min-h-[34px] leading-snug font-normal"
+            title={product.name}
+          >
+            {product.name}
+          </h3>
 
-        {price !== undefined ? (
-          <div className="mt-2 whitespace-nowrap overflow-hidden">
-            <span
-              className={`text-shopee-orange font-bold tabular-nums ${dense ? "text-xs" : "text-sm"}`}
-            >
-              {formatRupiah(price)}
-            </span>
-            {discount > 0 && originalPrice !== undefined ? (
+          {price !== undefined ? (
+            <div className="mt-1.5 sm:mt-2 whitespace-nowrap overflow-hidden flex items-baseline gap-1">
               <span
-                className={`text-gray-500 line-through ml-1 tabular-nums ${dense ? "text-[9px]" : "text-[10px]"}`}
+                className={`text-shopee-orange font-bold tabular-nums ${dense ? "text-xs" : "text-sm sm:text-base"}`}
               >
-                {formatRupiah(originalPrice)}
+                {formatRupiah(price)}
+              </span>
+              {discount > 0 && originalPrice !== undefined ? (
+                <span
+                  className={`text-gray-400 line-through tabular-nums ${dense ? "text-[9px]" : "text-[10px] sm:text-xs"}`}
+                >
+                  {formatRupiah(originalPrice)}
+                </span>
+              ) : null}
+            </div>
+          ) : (
+            <div className="mt-1.5 sm:mt-2 whitespace-nowrap overflow-hidden">
+              <span
+                className={`text-shopee-orange font-bold ${dense ? "text-xs" : "text-sm"}`}
+              >
+                Cek Harga di Shopee
+              </span>
+            </div>
+          )}
+
+          <div className="mt-1 flex items-center justify-between text-[11px]">
+            {rating !== undefined ? (
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <span
+                    key={index}
+                    aria-hidden
+                    className={
+                      index < filledStars ? "text-orange-400" : "text-gray-300"
+                    }
+                  >
+                    ★
+                  </span>
+                ))}
+                <span className="text-gray-500 ml-0.5 tabular-nums text-[10px]">
+                  {dense ? null : formatRating(rating)}
+                </span>
+                <span className="sr-only">
+                  Rating {formatRating(rating)} dari 5.
+                </span>
+              </div>
+            ) : (
+              <span className="text-gray-400 text-[10px]">Belum ada rating</span>
+            )}
+            {sold !== undefined ? (
+              <span className="text-gray-500 tabular-nums whitespace-nowrap text-[10px]">
+                Terjual {formatSold(sold)}
+              </span>
+            ) : reviews !== undefined ? (
+              <span className="text-gray-500 tabular-nums whitespace-nowrap text-[10px]">
+                {formatCount(reviews)} ulasan
               </span>
             ) : null}
           </div>
-        ) : (
-          <div className="mt-2 whitespace-nowrap overflow-hidden">
-            <span
-              className={`text-shopee-orange font-bold ${dense ? "text-xs" : "text-sm"}`}
-            >
-              Cek Harga di Shopee
-            </span>
-          </div>
-        )}
+        </div>
 
-        <div className="mt-1.5 flex items-center justify-between text-[10px]">
-          {rating !== undefined ? (
-            <div className="flex items-center gap-0.5">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <span
-                  key={index}
-                  aria-hidden
-                  className={
-                    index < filledStars ? "text-orange-400" : "text-gray-300"
-                  }
-                >
-                  ★
-                </span>
-              ))}
-              <span className="text-gray-500 ml-0.5 tabular-nums">
-                {dense ? null : formatRating(rating)}
-              </span>
-              <span className="sr-only">
-                Rating {formatRating(rating)} dari 5.
+        {!dense && (
+          <div className="mt-2.5 pt-1.5 border-t border-gray-100">
+            <div className="w-full bg-shopee-orange hover:bg-shopee-darkorange text-white text-[11px] font-semibold py-1.5 px-2 rounded-xs text-center flex items-center justify-center gap-1 shadow-xs transition-colors">
+              <span>Beli di Shopee</span>
+              <span className="text-[10px]" aria-hidden>
+                ↗
               </span>
             </div>
-          ) : (
-            <span className="text-gray-400">Belum ada rating</span>
-          )}
-          {sold !== undefined ? (
-            <span className="text-gray-500 tabular-nums whitespace-nowrap">
-              Terjual {formatSold(sold)}
-            </span>
-          ) : reviews !== undefined ? (
-            <span className="text-gray-500 tabular-nums whitespace-nowrap">
-              {formatCount(reviews)} ulasan
-            </span>
-          ) : null}
-        </div>
+          </div>
+        )}
       </div>
     </a>
   );

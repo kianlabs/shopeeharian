@@ -57,19 +57,29 @@ export function SiteHeader({
             onSubmit={handleSubmit}
             className="flex-1 min-w-0 max-w-2xl"
           >
-            <div className="relative flex">
+            <div className="relative flex items-center">
               <input
                 type="text"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={placeholder}
                 aria-label="Cari produk"
-                className="flex-1 min-w-0 px-3 sm:px-4 py-2 rounded-l-sm text-sm bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="flex-1 min-w-0 px-3 sm:px-4 py-2 pr-8 sm:pr-9 rounded-l-sm text-xs sm:text-sm bg-white placeholder:text-gray-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               />
+              {query !== "" && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Hapus pencarian"
+                  className="absolute right-12 sm:right-16 text-gray-400 hover:text-gray-600 px-1 text-xs active:scale-90"
+                >
+                  ✕
+                </button>
+              )}
               <button
                 type="submit"
                 aria-label="Cari"
-                className="shrink-0 bg-shopee-darkorange hover:bg-red-600 px-3 sm:px-5 rounded-r-sm text-white font-medium text-sm"
+                className="shrink-0 bg-shopee-darkorange hover:bg-red-600 px-3 sm:px-5 py-2 rounded-r-sm text-white font-medium text-xs sm:text-sm"
               >
                 🔍
               </button>

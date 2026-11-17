@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { CATEGORIES, CATEGORY_PAGES, TABS } from "@/lib/config";
 import {
   getCatalogState,
@@ -57,6 +57,16 @@ export function ProductExplorer({
   products: Product[];
   category?: Category;
 }) {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const state = useSyncExternalStore(
     subscribeToCatalog,
     getCatalogState,
@@ -114,7 +124,7 @@ export function ProductExplorer({
 
   return (
     <>
-      <div className="flex gap-2 overflow-x-auto scrollbar-hide mb-3 lg:hidden">
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide mb-3 lg:hidden py-0.5">
         {chips.map((chip) => {
           const isActive = category ? chip.id === sub : chip.id === filter;
           return (
@@ -127,10 +137,10 @@ export function ProductExplorer({
                   : setCategory(chip.id as Category | "semua")
               }
               aria-pressed={isActive}
-              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-medium active:scale-95 transition-all ${
                 isActive
-                  ? "bg-shopee-orange text-white"
-                  : "bg-white text-gray-600 border border-gray-200"
+                  ? "bg-shopee-orange text-white shadow-xs"
+                  : "bg-white text-gray-700 border border-gray-200 active:bg-gray-50"
               }`}
             >
               {chip.label}
@@ -140,7 +150,7 @@ export function ProductExplorer({
       </div>
 
       {/* Tab bar — sama seperti referensi. */}
-      <div className="bg-white rounded-sm shadow-sm mb-3 sm:mb-4 overflow-x-auto scrollbar-hide">
+      <div className="bg-white rounded-sm shadow-xs mb-3 sm:mb-4 overflow-x-auto scrollbar-hide">
         <div className="flex border-b border-gray-100 w-max min-w-full">
           {TABS.map((entry) => {
             const isActive = entry.id === tab;
@@ -150,9 +160,9 @@ export function ProductExplorer({
                 type="button"
                 onClick={() => setTab(entry.id)}
                 aria-pressed={isActive}
-                className={`px-4 sm:px-6 py-3 text-sm font-medium transition-colors relative whitespace-nowrap ${
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors relative whitespace-nowrap active:bg-gray-50 ${
                   isActive
-                    ? "text-shopee-orange"
+                    ? "text-shopee-orange font-bold"
                     : "text-gray-500 hover:text-gray-700"
                 }`}
               >
@@ -167,7 +177,7 @@ export function ProductExplorer({
       </div>
 
       {list.length === 0 ? (
-        <div className="bg-white rounded-sm shadow-sm px-4 py-12 text-center">
+        <div className="bg-white rounded-sm shadow-xs px-4 py-12 text-center">
           <p className="text-2xl" aria-hidden>
             🔍
           </p>
@@ -181,6 +191,18 @@ export function ProductExplorer({
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+      )}
+
+      {/* Floating Kembali ke Atas (khusus mobile) */}
+      {showScrollTop && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Kembali ke atas"
+          className="fixed bottom-5 right-4 z-40 bg-white/95 text-shopee-orange border border-orange-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center text-base font-bold active:scale-90 transition-transform sm:hidden"
+        >
+          ↑
+        </button>
       )}
     </>
   );
