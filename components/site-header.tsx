@@ -12,10 +12,8 @@ import {
 
 export function SiteHeader({
   placeholder = site.searchPlaceholder,
-  showAccount = true,
 }: {
   placeholder?: string;
-  showAccount?: boolean;
 }) {
   const { query } = useSyncExternalStore(
     subscribeToCatalog,
@@ -77,33 +75,6 @@ export function SiteHeader({
               </button>
             </div>
           </form>
-
-          <div className="hidden md:flex items-center gap-4 text-white">
-            <a
-              href={site.shopeeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center cursor-pointer"
-            >
-              <span aria-hidden className="text-lg">
-                🛒
-              </span>
-              <span className="text-[9px]">Keranjang</span>
-            </a>
-            {showAccount ? (
-              <a
-                href={site.shopeeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center cursor-pointer"
-              >
-                <span aria-hidden className="text-lg">
-                  👤
-                </span>
-                <span className="text-[9px]">Akun</span>
-              </a>
-            ) : null}
-          </div>
         </div>
       </div>
     </header>

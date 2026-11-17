@@ -65,7 +65,7 @@ export function CategoryView({ id }: { id: Category }) {
     <>
       {/* Header & footer di luar <main> supaya tetap jadi landmark
           banner/contentinfo untuk screen reader. */}
-      <SiteHeader placeholder={page.searchPlaceholder} showAccount={false} />
+      <SiteHeader placeholder={page.searchPlaceholder} />
 
       <main className="min-h-screen bg-gray-100">
         <div className="bg-white border-b">
