@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Shopee Harian">
+  <rect width="64" height="64" rx="14" fill="#ee4e2e" />
+  <path
+    d="M43 21c-3-4-9-5-13-3-5 2-5 9 1 11s12 3 12 9c0 6-8 9-14 6-2-1-4-2-5-4"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

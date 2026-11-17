@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
@@ -11,6 +10,17 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  // Foto produk berasal dari CDN Shopee (field image_url di export), jadi
+  // host-nya harus diizinkan di sini (sesuai docs Next.js: images.remotePatterns).
+  // Foto lokal tetap bisa dipakai dari public/products/ tanpa konfigurasi ini.
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "down-id.img.susercontent.com",
+      },
+    ],
   },
 };
 
